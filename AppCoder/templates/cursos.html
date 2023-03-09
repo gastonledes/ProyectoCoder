@@ -6,6 +6,25 @@
  
     <!--colocoamos lo que va a cambiar-->
     <h1>Cursos</h1>
-    <p>Informacion de los cursos</p>
+    <p> </p>
+    <p>Agregar un curso</p>
+    {% if miformulario.errors %}
+    <p style="color: red;"> Estan mal los datos, revisar.</p>
+    {% endif %}
+    
+    <form action="" method="POST">{% csrf_token %}
+        
+        <table>
+            {{ miformulario.as_table }}
+        </table>
+        
+        <input type="submit" value="Enviar">
+    </form>
+    <p> </p>
+    <p> Busqueda por nro de camada</p>
+    <form action="/AppCoder/buscar/" method="GET">
+        <input type="number" name='camada' id='camada'>
+        <input type="submit" value="buscar">
+    </form>
 
 {% endblock %}
